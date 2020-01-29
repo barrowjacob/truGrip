@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-   <meta charset="UTF-8">
-   <title>Home</title>
+<head th:insert="partials/general.html :: headerfiles('Home Page')">
 </head>
 <body>
-   <h1>Welcome</h1>
+   <nav th:insert="partials/general.html :: navfiles" ></nav>
+   <main>
+      <section class="section">
+         <div class="container is-dark">
+            <h1 class="title">
+               Concealed. Handgun. License.
+            </h1>
+            <p class="subtitle">
+               Get all the <strong>pews</strong>!
+            </p>
+
+         </div>
+         <level>
+            <level-left><button class="button is-success">Button</button></level-left>
+            <level-right><button class="button is-warning">Button</button></level-right>
+         </level>
+      </section>
+   </main>
 </body>
 </html>
