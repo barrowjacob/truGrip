@@ -8,31 +8,31 @@ import java.util.List;
 public class User {
 
     @OneToMany(mappedBy="user")
-    private List<Class> classes;
+    private List<SchoolClass> schoolClasses;
 
-    public List<Class> getClasses() {
-        return classes;
+    public List<SchoolClass> getSchoolClasses() {
+        return schoolClasses;
     }
 
-    public void setClasses(List<Class> classes) {
-        this.classes = classes;
+    public void setSchoolClasses(List<SchoolClass> schoolClasses) {
+        this.schoolClasses = schoolClasses;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(nullable=false)
     private String email;
 
     @Column(nullable=false)
-    private int phoneNumber;
+    private String phoneNumber;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -44,11 +44,11 @@ public class User {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }

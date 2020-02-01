@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="classes")
-public class Class {
+@Table(name="schoolClasses")
+public class SchoolClass {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -13,7 +13,7 @@ public class Class {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(nullable=false)
     private Date date;
@@ -32,11 +32,11 @@ public class Class {
         this.user = user;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
