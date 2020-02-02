@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="partials/allPartials.html :: headerfiles('Checkout')">
+</head>
+<body>
+   <nav th:insert="partials/allPartials.html :: navfiles" ></nav>
+   <main class="d-flex justify-content-center flex-column align-items-center">
+      <h1 class="mt-5">Let's confirm:</h1>
+      <div class="card d-flex w-25 justify-content-center flex-column align-items-center p-2 mt-5">
+         <h4 class="card-title" th:text="${schoolClass.title}"></h4>
+         <h5 th:text="'Class Date: ' + ${schoolClass.date}"></h5>
+         <div class="card-text d-flex justify-content-center align-items-center flex-column">
+            <p th:text="${schoolClass.body}"></p>
+            <p th:text="'class price: $' + ${schoolClass.price}"></p>
+         </div>
+      </div>
+<!--stripe checkout-->
+      <form th:action="@{|/charge/${schoolClass.id}|}" th:method='POST' id='checkout-form' xmlns:th="http://www.w3.org/1999/xhtml">
+         <input type='hidden' th:value='${amount/100}' name='amount' />
+         <h1>Price:<span th:text='${amount/100}' /></h1>
+         <script
+           src='https://checkout.stripe.com/checkout.js'
+           class='stripe-button'
+           th:attr='data-key=${stripePublicKey},
+         data-amount=${amount}'
+           data-name='StackAbuse Services'
+           data-description='Product Checkout'
+           data-image
+             ='http://www.stackabuse.com/assets/images/sa-java-dark.svg?v=b5a08453df'
+           data-locale='auto'
+           data-zip-code='false'>
+         </script>
+      </form>
+   </main>
+</body>
+</html>

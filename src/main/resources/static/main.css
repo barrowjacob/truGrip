@@ -1,0 +1,14 @@
+body {
+    height: 100vh;
+    width: 100vw;
+}
+.card {
+    box-shadow: 2px 5px 8px 4px slategrey;
+    width: 23%
+}
+.btn {
+    align-items: stretch;
+}
+i {
+    font-size: 1.5rem;
+}

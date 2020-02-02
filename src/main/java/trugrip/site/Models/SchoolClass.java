@@ -16,13 +16,38 @@ public class SchoolClass {
     private Integer id;
 
     @Column(nullable=false)
-    private Date date;
+    private String date;
 
     @Column(nullable=false)
     private int seatsAvailable;
 
     @Column(nullable=false)
     private double price;
+
+    @Column(nullable=false)
+    private String title;
+
+    @Column(nullable=false)
+    private String body;
+
+    //getters and setters
+
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
 
     public User getUser() {
         return user;
@@ -40,11 +65,11 @@ public class SchoolClass {
         this.id = id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

@@ -28,6 +28,11 @@ public class User {
     @Column(nullable=false)
     private String phoneNumber;
 
+    @Column(nullable=false)
+    private Boolean isAdmin;
+
+//    getters and setters
+
     public Integer getId() {
         return id;
     }
@@ -50,5 +55,13 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Boolean getAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        isAdmin = admin;
     }
 }

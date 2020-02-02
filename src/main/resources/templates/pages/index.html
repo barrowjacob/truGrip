@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:insert="partials/general.html :: headerfiles('Home Page')">
+<head th:insert="partials/allPartials.html :: headerfiles('Home Page')">
 </head>
 <body>
-   <nav th:insert="partials/general.html :: navfiles" ></nav>
+   <nav th:insert="partials/allPartials.html :: navfiles" ></nav>
    <main>
-      <section class="section">
-         <div class="container is-dark">
-            <h1 class="title">
-               Concealed. Handgun. License.
-            </h1>
-            <p class="subtitle">
-               Get all the <strong>pews</strong>!
-            </p>
-         <div>
+         <div class="jumbotron">
+            <h1 class="display-4">Begin your CHL journey today.</h1>
+            <p class="lead">With Tru Grip's state-of-the-art classroom, range and instruction styles, get ready to experienc the best that Texas has to offer in concealed carry permit instruction. Natalia's Chief of Police Glenn Barrow will take you step by step through the licensing process, what it means to carry, and so much more!</p>
+            <hr class="my-4">
+            <p>Book your class today!</p>
+            <a class="btn btn-primary btn-lg" th:href="@{/bookNow/}" role="button">Book now!</a>
          </div>
-         </div>
-         <level>
-            <level-left><button class="button is-success">Button</button></level-left>
-            <level-right><button class="button is-warning">Button</button></level-right>
-         </level>
-      </section>
+
    </main>
 </body>
 </html>
