@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html xmlns='http://www.w3.org/1999/xhtml' xmlns:th='http://www.thymeleaf.org'>
-<head>
-   <title>Result</title>
-</head>
-<body>
-   <h1>Your payment of <span th:text="${amount}"></span> has successfully processed!</h1>
+<head th:insert="partials/allPartials.html :: headerfiles('Payment Confirmed')">
 
-   <h3>You are now booked for: <span th:text="${class.title}"></span></h3>
-   <h4>On: <span th:text="${class.date}"></span></h4>
+<body class="h-100">
+<nav th:insert="partials/allPartials.html :: navfiles" ></nav>
+<div class="d-flex justify-content-center align-items-center">
+   <div class="card">
+      <h1>Your payment of <span th:text="${amount}"></span> has successfully processed!</h1>
+
+      <h3>You are now booked for: <span th:text="${class.title}"></span></h3>
+      <h4>On: <span th:text="${class.date}"></span></h4>
+   </div>
+</div>
 </body>
 </html>
