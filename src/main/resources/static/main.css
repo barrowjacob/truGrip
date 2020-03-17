@@ -15,11 +15,16 @@ i {
 #carousels img {
     height: 50vh;
 }
+#headertron img{
+    height: 30vh;
+    width: 100vw;
+}
 .jumbotron {
-    height: 100%;
+    padding: 0;
+    margin: 0;
 }
 .class-images {
-    height: 100%;
+    height: auto;
     width: 100%;
 }
 .offset-1 {
