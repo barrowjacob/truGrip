@@ -30,3 +30,12 @@ i {
 .offset-1 {
     margin-left: 5%;
 }
+.row {
+    margin-right: 0;
+}
+.padding {
+    padding: 1%;
+}
+hr {
+    width: 60%;
+}
