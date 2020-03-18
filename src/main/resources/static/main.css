@@ -13,7 +13,7 @@ i {
     font-size: 1.5rem;
 }
 #carousels img {
-    height: 50vh;
+    height: 60vh;
 }
 #headertron img{
     height: 30vh;
@@ -38,4 +38,12 @@ i {
 }
 hr {
     width: 60%;
+}
+.no-margin {
+    margin: 0;
+}
+#homePageJumbo {
+    background-image: url("img/Untitled design.png");
+    background-size: cover;
+
 }
