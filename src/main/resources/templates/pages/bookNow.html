@@ -4,24 +4,31 @@
 </head>
 <body>
    <nav th:insert="partials/allPartials.html :: navfiles" ></nav>
-   <main class="w-100 h-100 d-flex flex-column align-items-center mt-5">
-      <h1>Upcoming classes:</h1>
-      <div class="d-flex justify-content-center align-items-center flex-wrap">
-      <div id="one" class="p-2 card mr-2 d-flex justify-content-center flex-wrap align-items-center" th:each="class : ${schools}">
-         <a th:href="@{|/bookNow/${class.id}/checkout|}"  class="card-title d-flex flex-column align-items-center"><h4 th:text="${class.title}"></h4>
-            <h5 th:text="${class.date}"></h5></a>
-         <p class="card-text" th:text="${class.body}"></p>
-         <h5 th:text="'$' + ${class.price}"></h5>
-         Seats Remaining: <h5 th:text="${class.seatsAvailable}"></h5>
-      </div>
-      </div>
-      <div class="mt-4 d-flex justify-content-center align-items-center flex-column">
-         <h1>Want to book a different date?</h1>
-         <div class="d-flex flex-column">
-         <a class="btn btn-primary btn-lg" href="#">Click Here to Request A Different Date</a>
-         <a class="mt-2 btn btn-success btn-lg" href="#">Click Here to Request A Private Class</a>
-         </div>
-      </div>
+
+<!--   this all needs to be redone, client does not want anything more than ability to see class dates and if there are seats available-->
+<!--   also ability to request a date, or request a seat-->
+
+
+
+
+<!--   <main class="w-100 h-100 d-flex flex-column align-items-center mt-5">-->
+<!--      <h1>Upcoming classes:</h1>-->
+<!--      <div class="d-flex justify-content-center align-items-center flex-wrap">-->
+<!--      <div id="one" class="p-2 card mr-2 d-flex justify-content-center flex-wrap align-items-center" th:each="class : ${schools}">-->
+<!--         <a th:href="@{|/bookNow/${class.id}/checkout|}"  class="card-title d-flex flex-column align-items-center"><h4 th:text="${class.title}"></h4>-->
+<!--            <h5 th:text="${class.date}"></h5></a>-->
+<!--         <p class="card-text" th:text="${class.body}"></p>-->
+<!--         <h5 th:text="'$' + ${class.price}"></h5>-->
+<!--         Seats Remaining: <h5 th:text="${class.seatsAvailable}"></h5>-->
+<!--      </div>-->
+<!--      </div>-->
+<!--      <div class="mt-4 d-flex justify-content-center align-items-center flex-column">-->
+<!--         <h1>Want to book a different date?</h1>-->
+<!--         <div class="d-flex flex-column">-->
+<!--         <a class="btn btn-primary btn-lg" href="#">Click Here to Request A Different Date</a>-->
+<!--         <a class="mt-2 btn btn-success btn-lg" href="#">Click Here to Request A Private Class</a>-->
+<!--         </div>-->
+<!--      </div>-->
    </main>
 </body>
 </html>
