@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:insert="partials/allPartials.html :: headerfiles('Available Classes')">
+
 </head>
 <body>
-   <nav th:insert="partials/allPartials.html :: navfiles" ></nav>
+<nav th:insert="partials/allPartials.html :: navfiles"></nav>
 
 <!--   this all needs to be redone, client does not want anything more than ability to see class dates and if there are seats available-->
 <!--   also ability to request a date, or request a seat-->
 
+<main class="big-padding">
+   <div class="calendar" id="calendar">
+      <div class="calendar-btn month-btn" onclick="$('#months').toggle('fast')">
+         <span id="curMonth"></span>
+         <div id="months" class="months dropdown"></div>
+      </div>
+
+      <div class="calendar-btn year-btn" onclick="$('#years').toggle('fast')">
+         <span id="curYear"></span>
+         <div id="years" class="years dropdown"></div>
+      </div>
+
+      <div class="clear"></div>
+
+      <div class="calendar-dates">
+         <div class="days">
+            <div class="day label">SUN</div>
+            <div class="day label">MON</div>
+            <div class="day label">TUE</div>
+            <div class="day label">WED</div>
+            <div class="day label">THUR</div>
+            <div class="day label">FRI</div>
+            <div class="day label">SAT</div>
+
+            <div class="clear"></div>
+         </div>
+
+         <div id="calendarDays" class="days">
+         </div>
+      </div>
+   </div>
 
 
-
-<!--   NEEDS OF CLIENT-->
+   <!--   NEEDS OF CLIENT-->
    <!--
       *USER CAN SEE CLASSES ALREADY AVAILABLE
       *USER CAN REQUEST SEAT AT THOSE CLASSES
@@ -32,26 +63,124 @@
    -->
 
 
+   <!--   <main class="w-100 h-100 d-flex flex-column align-items-center mt-5">-->
+   <!--      <h1>Upcoming classes:</h1>-->
+   <!--      <div class="d-flex justify-content-center align-items-center flex-wrap">-->
+   <!--      <div id="one" class="p-2 card mr-2 d-flex justify-content-center flex-wrap align-items-center" th:each="class : ${schools}">-->
+   <!--         <a th:href="@{|/bookNow/${class.id}/checkout|}"  class="card-title d-flex flex-column align-items-center"><h4 th:text="${class.title}"></h4>-->
+   <!--            <h5 th:text="${class.date}"></h5></a>-->
+   <!--         <p class="card-text" th:text="${class.body}"></p>-->
+   <!--         <h5 th:text="'$' + ${class.price}"></h5>-->
+   <!--         Seats Remaining: <h5 th:text="${class.seatsAvailable}"></h5>-->
+   <!--      </div>-->
+   <!--      </div>-->
+   <!--      <div class="mt-4 d-flex justify-content-center align-items-center flex-column">-->
+   <!--         <h1>Want to book a different date?</h1>-->
+   <!--         <div class="d-flex flex-column">-->
+   <!--         <a class="btn btn-primary btn-lg" href="#">Click Here to Request A Different Date</a>-->
+   <!--         <a class="mt-2 btn btn-success btn-lg" href="#">Click Here to Request A Private Class</a>-->
+   <!--         </div>-->
+   <!--      </div>-->
+</main>
+<script>
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var startYear = 2000;
+    var endYear = 2020;
+    var month = 0;
+    var year = 0;
 
 
-<!--   <main class="w-100 h-100 d-flex flex-column align-items-center mt-5">-->
-<!--      <h1>Upcoming classes:</h1>-->
-<!--      <div class="d-flex justify-content-center align-items-center flex-wrap">-->
-<!--      <div id="one" class="p-2 card mr-2 d-flex justify-content-center flex-wrap align-items-center" th:each="class : ${schools}">-->
-<!--         <a th:href="@{|/bookNow/${class.id}/checkout|}"  class="card-title d-flex flex-column align-items-center"><h4 th:text="${class.title}"></h4>-->
-<!--            <h5 th:text="${class.date}"></h5></a>-->
-<!--         <p class="card-text" th:text="${class.body}"></p>-->
-<!--         <h5 th:text="'$' + ${class.price}"></h5>-->
-<!--         Seats Remaining: <h5 th:text="${class.seatsAvailable}"></h5>-->
-<!--      </div>-->
-<!--      </div>-->
-<!--      <div class="mt-4 d-flex justify-content-center align-items-center flex-column">-->
-<!--         <h1>Want to book a different date?</h1>-->
-<!--         <div class="d-flex flex-column">-->
-<!--         <a class="btn btn-primary btn-lg" href="#">Click Here to Request A Different Date</a>-->
-<!--         <a class="mt-2 btn btn-success btn-lg" href="#">Click Here to Request A Private Class</a>-->
-<!--         </div>-->
-<!--      </div>-->
-   </main>
+    function loadCalendarMonths() {
+        for (var i = 0; i < months.length; i++) {
+            var doc = document.createElement("div");
+            doc.innerHTML = months[i];
+            doc.classList.add("dropdown-item");
+
+            doc.onclick = (function () {
+                var selectedMonth = i;
+                return function () {
+                    month = selectedMonth;
+                    document.getElementById("curMonth").innerHTML = months[month];
+                    loadCalendarDays();
+                    return month;
+                }
+            })();
+
+            document.getElementById("months").appendChild(doc);
+        }
+    }
+
+    function loadCalendarYears() {
+        document.getElementById("years").innerHTML = "";
+
+        for (var i = startYear; i <= endYear; i++) {
+            var doc = document.createElement("div");
+            doc.innerHTML = i;
+            doc.classList.add("dropdown-item");
+
+            doc.onclick = (function () {
+                var selectedYear = i;
+                return function () {
+                    year = selectedYear;
+                    document.getElementById("curYear").innerHTML = year;
+                    loadCalendarDays();
+                    return year;
+                }
+            })();
+
+            document.getElementById("years").appendChild(doc);
+        }
+    }
+
+    function loadCalendarDays() {
+        document.getElementById("calendarDays").innerHTML = "";
+
+        var tmpDate = new Date(year, month, 0);
+        var num = daysInMonth(month, year);
+        var dayofweek = tmpDate.getDay();       // find where to start calendar day of week
+
+        for (var i = 0; i <= dayofweek; i++) {
+            var d = document.createElement("div");
+            d.classList.add("day");
+            d.classList.add("blank");
+            document.getElementById("calendarDays").appendChild(d);
+        }
+
+
+        for (var i = 0; i < num; i++) {
+
+            var tmp = i + 1 + "<br />";
+            var d = document.createElement("div");
+            d.id = "calendarday_" + i;
+            d.className = "day";
+            d.innerHTML = tmp;
+
+
+            document.getElementById("calendarDays").appendChild(d);
+
+        }
+
+        var clear = document.createElement("div");
+        clear.className = "clear";
+        document.getElementById("calendarDays").appendChild(clear);
+    }
+
+    function daysInMonth(month, year) {
+        var d = new Date(year, month + 1, 0);
+        return d.getDate();
+    }
+
+    window.addEventListener('load', function () {
+        var date = new Date();
+        month = date.getMonth();
+        year = date.getFullYear();
+        document.getElementById("curMonth").innerHTML = months[month];
+        document.getElementById("curYear").innerHTML = year;
+        loadCalendarMonths();
+        loadCalendarYears();
+        loadCalendarDays();
+    });
+
+</script>
 </body>
 </html>

@@ -3,6 +3,7 @@ package trugrip.site.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import trugrip.site.Models.User;
 import trugrip.site.Repositories.ClassRepository;
 import trugrip.site.Repositories.UserRepository;
 
@@ -19,6 +20,7 @@ public class allClassesController {
     @GetMapping("/bookNow")
     public String showBookPage(Model model) {
         model.addAttribute("bookNow", true);
+        model.addAttribute("calendarTest", true);
         model.addAttribute("schools", schoolClassDao.findAll());
         return "/pages/bookNow";
     }
