@@ -18,6 +18,7 @@ public class allClassesController {
 
     @GetMapping("/bookNow")
     public String showBookPage(Model model) {
+        model.addAttribute("bookNow", true);
         model.addAttribute("schools", schoolClassDao.findAll());
         return "/pages/bookNow";
     }
