@@ -9,81 +9,103 @@
 <!--   this all needs to be redone, client does not want anything more than ability to see class dates and if there are seats available-->
 <!--   also ability to request a date, or request a seat-->
 
-<main class="big-padding">
-   <div class="calendar" id="calendar">
-      <div class="calendar-btn month-btn" onclick="$('#months').toggle('fast')">
-         <span id="curMonth"></span>
-         <div id="months" class="months dropdown"></div>
-      </div>
-
-      <div class="calendar-btn year-btn" onclick="$('#years').toggle('fast')">
-         <span id="curYear"></span>
-         <div id="years" class="years dropdown"></div>
-      </div>
-
-      <div class="clear"></div>
-
-      <div class="calendar-dates">
-         <div class="days">
-            <div class="day label">SUN</div>
-            <div class="day label">MON</div>
-            <div class="day label">TUE</div>
-            <div class="day label">WED</div>
-            <div class="day label">THUR</div>
-            <div class="day label">FRI</div>
-            <div class="day label">SAT</div>
-
-            <div class="clear"></div>
+<div
+  class="jumbotron jumbotron-fluid bookings d-flex justify-content-center align-items-center row">
+   <div class="card col-8 col-md-6 booking-card">
+      <h1 class="display-4">License to Carry</h1>
+      <div class="d-flex justify-content-center flex-column align-items-center">
+         <div
+           class="d-flex justify-content-center flex-column align-items-start mt-2 class-details">
+            <h5 class="class-date ml-1">April 4, 2020</h5>
+            <div class="mb-3 class-listing w-100 p-1">
+               <span class="p-3 times">8:00am - 3:00pm</span><span class="ml-5 p-3"> 4 Seats Available</span>
+            </div>
          </div>
-
-         <div id="calendarDays" class="days">
+         <div
+           class="d-flex justify-content-center flex-column align-items-start mt-1 class-details">
+            <h5 class="class-date ml-1">April 11, 2020</h5>
+            <div class="mb-3 class-listing w-100 p-1">
+               <span class="p-3 times ">8:00am - 3:00pm</span><span class="ml-5 p-3"> 11 Seats Available</span>
+            </div>
+         </div>
+         <div
+           class="d-flex justify-content-center flex-column align-items-start mt-1 class-details">
+            <h5 class="class-date ml-1">April 18, 2020</h5>
+            <div class="mb-3 class-listing w-100 p-1">
+               <span class="p-3 times">8:00am - 3:00pm</span><span class="ml-5 p-3"> 12 Seats Available</span>
+            </div>
+         </div>
+         <div
+           class="d-flex justify-content-center flex-column align-items-start mt-1 class-details">
+            <h5 class="class-date ml-1">April 25, 2020</h5>
+            <div class="mb-3 class-listing w-100 p-1">
+               <span class="p-3 times">8:00am - 3:00pm</span><span class="ml-5 p-3"> 6 Seats Available</span>
+            </div>
+         </div>
+         <div
+           class="d-flex justify-content-center flex-column align-items-start mt-1 class-details">
+            <h5 class="class-date ml-1">April 4, 2020</h5>
+            <div class="mb-3 class-listing w-100 p-1">
+               <span class="p-3 times">8:00am - 3:00pm</span><span class="ml-5 p-3 "> 12 Seats Available</span>
+            </div>
          </div>
       </div>
+
    </div>
+</div>
 
 
-   <!--   NEEDS OF CLIENT-->
-   <!--
-      *USER CAN SEE CLASSES ALREADY AVAILABLE
-      *USER CAN REQUEST SEAT AT THOSE CLASSES
-      *USER CAN REQUEST A NEW DATE FOR A NEW CLASS
-      *USER MUST BE WARNED THAT IT WON'T GO UNLESS AT LEAST 5 PEOPLE BOOK
-      *WHEN REGISTERING, USER MUST ADD PEOPLE THAT ARE COMING
-      *USER MUST BE NOTIFIED THAT THEY MUST PAY UPFRONT IN CASH OR CARD
-      *CALENDAR MUST DISPLAY DATES
-      *REMAINING SEATS MUST BE CALCULATED
-      *USER DATA MUST BE STORED IN TABLE
-      *SUMMARY EMAIL MUST BE SENT TO CLIENT
-      *CLIENT MUST HAVE ADMIN PORTAL
-      *THIS MUST SHOW DATA FOR EACH CLASS, BOOKED INDIVIDUALS, IF ITS A GO, ETC
-      *
+<!--   NEEDS OF CLIENT-->
+<!--
+   *USER CAN SEE CLASSES ALREADY AVAILABLE
+   *IT WILL BE A LIST OF AVAILABLE DATES AND CLASSES (SEE ATTACHED MOCKUP)
+   *USER CAN REQUEST SEAT AT THOSE CLASSES
+   *USER CAN REQUEST A NEW DATE FOR A NEW CLASS
+   *USER MUST BE WARNED THAT IT WON'T GO UNLESS AT LEAST 5 PEOPLE BOOK
+   *WHEN REGISTERING, USER MUST ADD PEOPLE THAT ARE COMING
+   *USER MUST BE NOTIFIED THAT THEY MUST PAY UPFRONT IN CASH OR CARD
+   *REMAINING SEATS MUST BE CALCULATED
+   *USER DATA MUST BE STORED IN TABLE
+   *SUMMARY EMAIL MUST BE SENT TO CLIENT
+   *CLIENT MUST HAVE ADMIN PORTAL
+   *THIS MUST SHOW DATA FOR EACH CLASS, BOOKED INDIVIDUALS, IF ITS A GO, ETC
+   *
 
 
 
-   -->
+-->
 
-
-   <!--   <main class="w-100 h-100 d-flex flex-column align-items-center mt-5">-->
-   <!--      <h1>Upcoming classes:</h1>-->
-   <!--      <div class="d-flex justify-content-center align-items-center flex-wrap">-->
-   <!--      <div id="one" class="p-2 card mr-2 d-flex justify-content-center flex-wrap align-items-center" th:each="class : ${schools}">-->
-   <!--         <a th:href="@{|/bookNow/${class.id}/checkout|}"  class="card-title d-flex flex-column align-items-center"><h4 th:text="${class.title}"></h4>-->
-   <!--            <h5 th:text="${class.date}"></h5></a>-->
-   <!--         <p class="card-text" th:text="${class.body}"></p>-->
-   <!--         <h5 th:text="'$' + ${class.price}"></h5>-->
-   <!--         Seats Remaining: <h5 th:text="${class.seatsAvailable}"></h5>-->
-   <!--      </div>-->
-   <!--      </div>-->
-   <!--      <div class="mt-4 d-flex justify-content-center align-items-center flex-column">-->
-   <!--         <h1>Want to book a different date?</h1>-->
-   <!--         <div class="d-flex flex-column">-->
-   <!--         <a class="btn btn-primary btn-lg" href="#">Click Here to Request A Different Date</a>-->
-   <!--         <a class="mt-2 btn btn-success btn-lg" href="#">Click Here to Request A Private Class</a>-->
-   <!--         </div>-->
-   <!--      </div>-->
 </main>
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+
 <script>
 
+
+// add bounce effect to class-listings
+// let elements =  document.querySelectorAll('.class-details');
+//     function animateButton(translateX, duration, elasticity) {
+//         anime.remove(el);
+//         anime({
+//             targets: el,
+//             translateX: translateX,
+//             duration: duration,
+//             elasticity: elasticity
+//         });
+//     }
+//
+//     function enterButton() { animateButton(25, 800, 400) };
+//     function leaveButton() { animateButton(0, 600, 300) };
+//
+// elements.forEach(function(el) {
+//     el.addEventListener('mouseenter', enterButton, false);
+//     el.addEventListener('mouseleave', leaveButton, false)});
+
+    // enterDetails() ({
+    //     targets: '.class-listing',
+    //     translateX: 250,
+    //     duration: 800
+    // });
 </script>
+<footer insert="partials/allPartials.html :: footer"></footer>
 </body>
 </html>

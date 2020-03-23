@@ -1,3 +1,10 @@
+
+body, *{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
 body {
     height: 100vh;
     width: 100vw;
@@ -50,138 +57,42 @@ hr {
 .big-padding {
     padding: 5%;
 }
-.calendar {
-    height: 50vh;
-    width: 40vw;
+.bookings {
+    height: 100vh;
+    background:
+    linear-gradient(
+    rgba(93, 117, 153, 1),
+    rgba(171, 182, 200, 1)
+    );
 }
-body, *{
-    padding:0px;
-    margin:0px;
-    box-sizing: border-box;
+.booking-card {
+    min-height: 50vh;
+    max-height: 80vh;
+    overflow: scroll;
+    background: #fbfbfb;
 }
-.calendar
-{
-    height: 100%;
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+.class-listing {
+    background: white;
+    box-shadow: -1px 1px 1px 1px darkgrey;
+    border-radius: 2%;
 }
-
-.calendar .dropdown
-{
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    color: #1caff6;
-    text-align: center;
-    font-size: 14pt;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 30px;
-    padding-right: 30px;
-    width: 160px;
-    left: 0px;
-    z-index: 2000;
+.class-date {
+    color: #6baeff;
 }
-
-.calendar .dropdown .dropdown-item
-{
-    cursor:pointer;
-    opacity: .7;
-    transition: .5s opacity;
+.class-details {
+    width: 60%;
 }
-
-.calendar .dropdown .dropdown-item:hover
-{
-    opacity: 1;
+/*attempting to move class-details*/
+.class-listing:hover {
+    animation-name: moveLeft;
+    animation-duration: 800ms;
 }
-
-.calendar .years
-{
-    display:none;
-}
-
-.calendar .title
-{
-    text-align:center;
-    font-size:20pt;
-}
-
-.calendar .calendar-btn
-{
-    float: left;
-    background-color: #24aeff;
-    color: white;
-    text-align: center;
-    font-size: 14pt;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    position: relative;
-    width: 20%;
-    cursor: pointer;
-    transition: .5s background-color;
-}
-
-.calendar .calendar-btn:hover{
-    background-color:#1f71a1;
-}
-
-.calendar .year-btn
-{
-    float:right;
-}
-
-.calendar .calendar-dates .days .day
-{
-    float:left;
-    width: 12%;
-    margin: 1%;
-    padding: 1%;
-    font-size:13pt;
-    text-align:center;
-    border-radius: 10px;
-    border: solid 1px #ddd;
-}
-
-.calendar .calendar-dates .days .day.blank
-{
-    background-color: white;
-    border:none;
-}
-
-.calendar .calendar-dates .days .day.selected
-{
-    background-color: #1caff6;
-    color: white;
-    cursor:pointer;
-    opacity: .5;
-    transition: .5s opacity;
-}
-
-.calendar .calendar-dates .days .day.selected:hover
-{
-    opacity: 1;
-}
-
-.calendar .calendar-dates .days .day.label
-{
-    height: 40px;
-    background-color: white;
-    color: black;
-    border:none;
-    font-weight:bold;
-}
-
-.clear{
-    clear:both;
-}
-
-@media only screen and (max-width: 960px) {
-    .calendar{
-        width: 100%;
-        margin: 0px;
-        box-sizing: border-box;
-        position: relative;
-        left: 0px;
+@keyframes moveLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(200px);
     }
 }
+
