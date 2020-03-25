@@ -83,16 +83,16 @@ hr {
     width: 60%;
 }
 /*attempting to move class-details*/
-.class-listing:hover {
-    animation-name: moveLeft;
-    animation-duration: 800ms;
-}
-@keyframes moveLeft {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(200px);
-    }
-}
+/*.class-listing:hover {*/
+/*    animation-name: moveLeft;*/
+/*    animation-duration: 800ms;*/
+/*}*/
+/*@keyframes moveLeft {*/
+/*    0% {*/
+/*        transform: translateX(0);*/
+/*    }*/
+/*    100% {*/
+/*        transform: translateX(200px);*/
+/*    }*/
+/*}*/
 
